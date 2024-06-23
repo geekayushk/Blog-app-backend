@@ -8,6 +8,7 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
+const port = 5000 || process.env.PORT
 
 
 dotenv.config();
@@ -42,6 +43,6 @@ app.use('/api/users', userRoute);
 app.use('/api/posts', postRoute);
 app.use('/api/categories', categoryRoute);
 
-app.listen("5000", () => {
+app.listen(port, () => {
     console.log("backend is onnn");
 })
