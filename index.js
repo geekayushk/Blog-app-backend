@@ -8,6 +8,7 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
+const cors = require('cors')
 const port = process.env.PORT || 8080;
 
 
@@ -37,7 +38,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
     res.status(200).json("file has been uploaded");
 });
 
-
+app.use(cors())
 app.use("/api/auth", authRoute);
 app.use('/api/users', userRoute);
 app.use('/api/posts', postRoute);
